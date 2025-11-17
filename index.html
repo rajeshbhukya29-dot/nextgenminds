@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEXTGEN MINDS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header class="ngm-header glass">
+    <div class="logo" id="logoHome">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">NEXTGEN MINDS</span>
+    </div>
+
+    <nav class="ngm-nav">
+      <ul id="navLinks">
+        <!-- Filled dynamically by JS based on role -->
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <span id="welcomeUser" class="welcome-user"></span>
+      <button id="authBtn" class="btn primary">Login / Register</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <section id="homeSection" class="section active">
+
+  <!-- HERO STORYTELLING -->
+  <div class="hero glass">
+    <div class="hero-content">
+      <h1>
+        Empowering Students.  
+        Enabling Employers.  
+        <span class="highlight">Shaping Careers.</span>
+      </h1>
+
+      <p>
+        At <strong>NEXTGEN MINDS</strong>, we believe talent deserves opportunity.
+        Our platform bridges the gap between students and employers by providing
+        real-world skill development, job-matching intelligence, and a seamless
+        hiring experience.
+      </p>
+
+      <p>
+        Whether you’re a student preparing for your dream career or an employer
+        searching for the right talent, NEXTGEN MINDS helps you connect, grow,
+        and succeed. Together, we build futures.
+      </p>
+
+      <div class="hero-actions">
+        <button id="heroStudentBtn" class="btn primary">I am a Student</button>
+        <button id="heroEmployerBtn" class="btn secondary">I am an Employer</button>
+      </div>
+    </div>
+
+    <!-- HOMEPAGE METRICS -->
+    <div class="hero-metrics">
+      <div class="metric-card glass">
+        <h3>Students Registered</h3>
+        <p id="metricStudents">0</p>
+      </div>
+      <div class="metric-card glass">
+        <h3>Jobs Posted</h3>
+        <p id="metricJobs">0</p>
+      </div>
+      <div class="metric-card glass">
+        <h3>Employers Joined</h3>
+        <p id="metricEmployers">0</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- OUR TEAM SECTION -->
+  <section class="team-section glass">
+    <h2>Meet Our Team</h2>
+    <p class="team-intro">
+      NEXTGEN MINDS is built by passionate minds who believe in innovation,
+      opportunity, and empowerment.
+    </p>
+
+    <div class="team-grid">
+
+      <article class="team-card">
+        <div class="circle-frame">
+          <img src="assets/images/team-rajesh-bhukya.jpg" alt="Rajesh Bhukya">
+        </div>
+        <h3>Rajesh Bhukya</h3>
+        <p>CEO / Project Manager</p>
+      </article>
+
+      <article class="team-card">
+        <div class="circle-frame">
+          <img src="assets/images/team-rajesh-bandari.jpg" alt="Rajesh Bandari">
+        </div>
+        <h3>Rajesh Bandari</h3>
+        <p>Business Analyst</p>
+      </article>
+
+      <article class="team-card">
+        <div class="circle-frame">
+          <img src="assets/images/team-srija-bakshi.jpg" alt="Srija Bakshi">
+        </div>
+        <h3>Srija Bakshi</h3>
+        <p>Technical Architect</p>
+      </article>
+
+      <article class="team-card">
+        <div class="circle-frame">
+          <img src="assets/images/team-saathwika-sunkari.jpg" alt="Saathwika Sunkari">
+        </div>
+        <h3>Saathwika Sunkari</h3>
+        <p>Compliance & Research Officer</p>
+      </article>
+
+      <article class="team-card">
+        <div class="circle-frame">
+          <img src="assets/images/team-haripriya.jpg" alt="Haripriya">
+        </div>
+        <h3>Haripriya</h3>
+        <p>IT Solutions Analyst</p>
+      </article>
+
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT INFO BLOCK -->
+  <section class="contact-short glass">
+    <h2>Contact</h2>
+    <p><strong>Name:</strong> RAJESH BANDARI</p>
+    <p><strong>Phone:</strong> 3145810013</p>
+    <p><strong>Email:</strong> support.nextgenminds@gmail.com</p>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="ngm-footer glass">
+    <div class="footer-links">
+      <a href="#" data-target="homeSection">Home</a>
+      <a href="#" data-target="jobsSection">Jobs</a>
+      <a href="#" data-target="upskillSection">Upskill</a>
+      <a href="#" data-target="supportSection">Support</a>
+    </div>
+
+    <p class="footer-copy">
+      © 2025 NEXTGEN MINDS • All Rights Reserved
+    </p>
+  </footer>
+
+</section>
+<!-- DASHBOARD SECTION -->
+<section id="dashboardSection" class="section">
+  
+  <div class="section-header">
+    <h2>Platform Dashboard</h2>
+    <p>Overview of platform activity and growth.</p>
+  </div>
+
+  <div class="grid-3">
+
+    <div class="glass metric-card">
+      <h3>Total Students</h3>
+      <p id="dashStudents">0</p>
+    </div>
+
+    <div class="glass metric-card">
+      <h3>Total Jobs Posted</h3>
+      <p id="dashJobs">0</p>
+    </div>
+
+    <div class="glass metric-card">
+      <h3>Total Employers</h3>
+      <p id="dashEmployers">0</p>
+    </div>
+
+  </div>
+
+  <div class="glass dashboard-info">
+    <h3>Platform Summary</h3>
+    <p>
+      These metrics highlight the engagement across our platform—showing how many
+      students registered, how many job opportunities were created, and how many
+      employers joined NEXTGEN MINDS.
+    </p>
+  </div>
+
+</section>
+
+
+
+      <!-- CONTACT INFO SHORT -->
+      <section class="contact-short glass">
+        <h2>Contact</h2>
+        <p><strong>Name:</strong> RAJESH BANDARI</p>
+        <p><strong>Phone:</strong> 3145810013</p>
+        <p><strong>Email:</strong> support.nextgenminds@gmail.com</p>
+      </section>
+    </section>
+
+    <!-- STUDENT: JOB POSTED SECTION -->
+    <section id="jobsSection" class="section">
+      <div class="section-header">
+        <h2>Available Jobs</h2>
+        <p>Browse jobs posted by employers. Apply directly from here.</p>
+      </div>
+      <div id="jobsList" class="cards-grid">
+        <!-- Job cards rendered by JS -->
+      </div>
+    </section>
+
+    <!-- STUDENT: UPSKILL SECTION -->
+    <section id="upskillSection" class="section">
+      <div class="section-header">
+        <h2>Upskill &amp; Performance</h2>
+        <p>Track your profile, match percentage and see which skills you need for your dream job.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass">
+          <h3>Your Profile Snapshot</h3>
+          <p><strong>Name:</strong> <span id="stuNameProfile">-</span></p>
+          <p><strong>Preferred Role:</strong> <span id="stuPreferredRoleProfile">-</span></p>
+          <p><strong>Experience (Years):</strong> <span id="stuExpProfile">-</span></p>
+          <p><strong>Skills:</strong> <span id="stuSkillsProfile">-</span></p>
+        </div>
+
+        <div class="glass">
+          <h3>Match to Current Jobs</h3>
+          <p>We calculate a simple skill-overlap based score to help you understand your fit.</p>
+          <p><strong>Best Match Job:</strong> <span id="bestMatchJob">-</span></p>
+          <p><strong>Match %:</strong> <span id="bestMatchScore">-</span></p>
+          <p><strong>Recommended Skills to Learn:</strong></p>
+          <ul id="recommendedSkillsList"></ul>
+        </div>
+      </div>
+
+      <div class="glass upskill-courses">
+        <h3>Suggested Courses (Coding &amp; Tech)</h3>
+        <ul>
+          <li>Full-Stack Web Development (HTML, CSS, JS, Node.js)</li>
+          <li>Python for Data Analysis &amp; Machine Learning</li>
+          <li>SQL &amp; Databases for Beginners</li>
+          <li>Cloud Basics (AWS / Azure / GCP)</li>
+          <li>Soft Skills: Communication &amp; Interview Prep</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SUPPORT / CONTACT ADMINS -->
+    <section id="supportSection" class="section">
+      <div class="section-header">
+        <h2>Support &amp; Contact Admins</h2>
+        <p>Have an issue or question? Send us a message.</p>
+      </div>
+      <form id="contactForm" class="glass form-grid">
+        <div class="form-field">
+          <label for="contactName">Name</label>
+          <input id="contactName" type="text" required />
+        </div>
+        <div class="form-field">
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" type="email" required />
+        </div>
+        <div class="form-field">
+          <label for="contactSubject">Subject</label>
+          <input id="contactSubject" type="text" required />
+        </div>
+        <div class="form-field full">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">Send Message</button>
+      </form>
+    </section>
+
+    <!-- EMPLOYER: POST A JOB -->
+    <section id="employerJobsSection" class="section">
+      <div class="section-header">
+        <h2>Create Job Posting</h2>
+        <p>Post a new job. Students will see it in their Job Posted page.</p>
+      </div>
+
+      <form id="jobForm" class="glass form-grid">
+        <div class="form-field">
+          <label for="jobCompany">Company Name</label>
+          <input id="jobCompany" type="text" required />
+        </div>
+        <div class="form-field">
+          <label for="jobTitle">Job Title</label>
+          <input id="jobTitle" type="text" required />
+        </div>
+        <div class="form-field">
+          <label for="jobType">Job Type</label>
+          <select id="jobType" required>
+            <option value="">Select</option>
+            <option>Full-time</option>
+            <option>Part-time</option>
+            <option>Internship</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="jobLocation">Location</label>
+          <input id="jobLocation" type="text" required />
+        </div>
+        <div class="form-field">
+          <label for="jobMode">Mode</label>
+          <select id="jobMode" required>
+            <option value="">Select</option>
+            <option>On-site</option>
+            <option>Hybrid</option>
+            <option>Remote</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="jobMinExp">Min Experience (Years)</label>
+          <input id="jobMinExp" type="number" min="0" required />
+        </div>
+        <div class="form-field">
+          <label for="jobMaxExp">Max Experience (Years)</label>
+          <input id="jobMaxExp" type="number" min="0" required />
+        </div>
+        <div class="form-field full">
+          <label for="jobSkills">Skills Required (comma separated)</label>
+          <input id="jobSkills" type="text" placeholder="e.g., JavaScript, React, SQL" required />
+        </div>
+        <div class="form-field full">
+          <label for="jobEdu">Required Education</label>
+          <input id="jobEdu" type="text" placeholder="e.g., B.Tech, BSc, Any Graduate" required />
+        </div>
+        <div class="form-field full">
+          <label for="jobDesc">Job Description</label>
+          <textarea id="jobDesc" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn primary">Post Job</button>
+      </form>
+    </section>
+
+    <!-- EMPLOYER: RECOMMENDING THIS COURSE -->
+    <section id="employerCoursesSection" class="section">
+      <div class="section-header">
+        <h2>Recommended Courses for Candidates</h2>
+        <p>Suggest upskilling paths for your applicants.</p>
+      </div>
+      <div class="glass">
+        <p>
+          Employers can recommend course tags such as <strong>Frontend</strong>, <strong>Backend</strong>,
+          <strong>Data Science</strong>, etc., and we can map students to these tags in the future.
+        </p>
+        <ul>
+          <li>For Software Developer: DSA, OOP, Git, Web Frameworks.</li>
+          <li>For Data Analyst: Excel, SQL, Python, Power BI / Tableau.</li>
+          <li>For Cloud / DevOps: Linux, Docker, CI/CD, Cloud Provider basics.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="adminSection" class="section">
+      <div class="section-header">
+        <h2>Admin Dashboard</h2>
+        <p>Visible only for the 5 admins (team members).</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="glass">
+          <h3>Total Students</h3>
+          <p id="adminStudentsCount">0</p>
+        </div>
+        <div class="glass">
+          <h3>Total Employers</h3>
+          <p id="adminEmployersCount">0</p>
+        </div>
+        <div class="glass">
+          <h3>Total Jobs</h3>
+          <p id="adminJobsCount">0</p>
+        </div>
+      </div>
+
+      <div class="grid-3 admin-tables">
+        <div class="glass admin-table">
+          <h3>Latest Students</h3>
+          <table id="adminStudentsTable">
+            <thead>
+              <tr>
+                <th>Name</th><th>Email</th><th>City</th><th>Preferred Role</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="glass admin-table">
+          <h3>Latest Employers</h3>
+          <table id="adminEmployersTable">
+            <thead>
+              <tr>
+                <th>Company</th><th>Email</th><th>Created</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="glass admin-table">
+          <h3>Latest Jobs</h3>
+          <table id="adminJobsTable">
+            <thead>
+              <tr>
+                <th>Title</th><th>Company</th><th>Location</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LOGIN / REGISTER MODAL -->
+  <div id="authModal" class="modal">
+    <div class="modal-content glass">
+      <button class="modal-close" id="closeAuthModal">×</button>
+      <h2>Login / Register</h2>
+
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="student">Student</button>
+        <button class="role-tab" data-role="employer">Employer</button>
+        <button class="role-tab" data-role="admin">Admin</button>
+      </div>
+
+      <!-- STUDENT AUTH -->
+      <div id="studentAuth" class="auth-pane active">
+        <h3>Student Registration</h3>
+        <form id="studentRegisterForm" class="form-grid">
+          <div class="form-field">
+            <label>First Name</label>
+            <input id="stuFirstName" required />
+          </div>
+          <div class="form-field">
+            <label>Last Name</label>
+            <input id="stuLastName" required />
+          </div>
+          <div class="form-field">
+            <label>Mobile</label>
+            <input id="stuMobile" required />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input id="stuEmail" type="email" required />
+          </div>
+          <div class="form-field">
+            <label>City</label>
+            <input id="stuCity" required />
+          </div>
+          <div class="form-field">
+            <label>Education Level</label>
+            <input id="stuEdu" placeholder="e.g., B.Tech, BSc" />
+          </div>
+          <div class="form-field">
+            <label>Experience Years</label>
+            <input id="stuExp" type="number" min="0" value="0" />
+          </div>
+          <div class="form-field full">
+            <label>Skills (comma separated)</label>
+            <input id="stuSkills" placeholder="e.g., HTML, CSS, JavaScript" />
+          </div>
+          <div class="form-field full">
+            <label>Preferred Role</label>
+            <input id="stuPreferredRole" placeholder="e.g., Frontend Developer" />
+          </div>
+          <button type="submit" class="btn primary">Register as Student</button>
+        </form>
+
+        <h3>Student Login (by Email)</h3>
+        <form id="studentLoginForm" class="form-grid">
+          <div class="form-field full">
+            <label>Email</label>
+            <input id="stuLoginEmail" type="email" required />
+          </div>
+          <button type="submit" class="btn secondary">Login</button>
+        </form>
+      </div>
+
+      <!-- EMPLOYER AUTH -->
+      <div id="employerAuth" class="auth-pane">
+        <h3>Employer Registration</h3>
+        <form id="employerRegisterForm" class="form-grid">
+          <div class="form-field">
+            <label>Company Name</label>
+            <input id="empCompanyName" required />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input id="empEmail" type="email" required />
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input id="empPassword" type="password" required />
+          </div>
+          <div class="form-field">
+            <label>Employee ID (5 digits)</label>
+            <input id="empEmployeeId" type="text" maxlength="5" required />
+          </div>
+          <button type="submit" class="btn primary">Register as Employer</button>
+        </form>
+
+        <h3>Employer Login</h3>
+        <form id="employerLoginForm" class="form-grid">
+          <div class="form-field full">
+            <label>Email</label>
+            <input id="empLoginEmail" type="email" required />
+          </div>
+          <div class="form-field full">
+            <label>Password</label>
+            <input id="empLoginPassword" type="password" required />
+          </div>
+          <button type="submit" class="btn secondary">Login</button>
+        </form>
+      </div>
+
+      <!-- ADMIN AUTH -->
+      <div id="adminAuth" class="auth-pane">
+        <h3>Admin Login</h3>
+        <p>Only for the 5 team members.</p>
+        <form id="adminLoginForm" class="form-grid">
+          <div class="form-field full">
+            <label>Admin Email</label>
+            <input id="adminEmail" type="email" required />
+          </div>
+          <button type="submit" class="btn primary">Login as Admin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST / NOTIFICATION -->
+  <div id="toast" class="toast"></div>
+
+  <!-- 🔥 Firebase + app.js go at the very end -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqu6tZ2ERm8nfVU8ifUkZi0A_kOEnm4yk",
+      authDomain: "nextgen-minds-ba024.firebaseapp.com",
+      projectId: "nextgen-minds-ba024",
+      storageBucket: "nextgen-minds-ba024.firebasestorage.app",
+      messagingSenderId: "90888956000",
+      appId: "1:90888956000:web:860319b7846d7ea321fb05",
+      measurementId: "G-ETVV0GVNCE"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+/* =========================================================
+   NEXTGEN MINDS – PRO UI (V2)
+   Ultra-clean, modern SaaS glass UI
+   Color theme: gradient (#cad0ff → #e3e3e3)
+   Fonts: Inter (fallback)
+========================================================= */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(145deg, #cad0ff, #e3e3e3);
+  color: #1c1f28;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* -------------------------------
+   Glass Card Base
+-------------------------------- */
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 0 25px rgba(255, 255, 255, 0.25);
+  transition: 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-4px);
+}
+
+/* -------------------------------
+   Header / Navigation
+-------------------------------- */
+.ngm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+  color: #4a4f9e;
+}
+
+.logo-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #2a2d43;
+}
+
+/* Navigation */
+.ngm-nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.ngm-nav a {
+  color: #2e3355;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: 0.2s;
+}
+
+.ngm-nav a:hover,
+.ngm-nav a.active {
+  color: #4d5dff;
+}
+
+.ngm-nav a.active::after,
+.ngm-nav a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 30px;
+  border-radius: 20px;
+  background: #4d5dff;
+}
+
+/* Right Area */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.welcome-user {
+  font-weight: 600;
+  color: #2d2f41;
+}
+
+/* -------------------------------
+   Buttons
+-------------------------------- */
+.btn {
+  padding: 10px 22px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+  font-size: 0.95rem;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #4d5dff, #6274ff);
+  color: white;
+  box-shadow: 0px 5px 14px rgba(77, 93, 255, 0.35);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #3d4aff, #5162ff);
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background: rgba(80, 80, 120, 0.1);
+  color: #2a2d43;
+}
+
+.btn.secondary:hover {
+  background: rgba(80, 80, 120, 0.2);
+}
+
+/* -------------------------------
+   Sections
+-------------------------------- */
+.section {
+  display: none;
+  padding: 40px 50px;
+}
+
+.section.active {
+  display: block;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2b2f45;
+  margin-bottom: 6px;
+}
+
+.section-header p {
+  color: #414769;
+  font-size: 1rem;
+}
+
+/* -------------------------------
+   Hero Section
+-------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 45px;
+  align-items: center;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #262a3d;
+  line-height: 1.2;
+}
+
+.hero p {
+  margin-top: 12px;
+  color: #4b5072;
+  line-height: 1.55;
+  font-size: 1.1rem;
+}
+
+.highlight {
+  color: #4d5dff;
+  font-weight: 800;
+}
+
+.hero-actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 18px;
+}
+
+.hero-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.metric-card {
+  text-align: center;
+}
+
+.metric-card p {
+  margin-top: 8px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #4d5dff;
+}
+
+/* -------------------------------
+   Team Section
+-------------------------------- */
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  color: #2a2d43;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 35px;
+}
+
+.team-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.circle-frame img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.7);
+}
+
+/* -------------------------------
+   Jobs Section
+-------------------------------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.cards-grid article h3 {
+  margin-bottom: 5px;
+  font-size: 1.25rem;
+  color: #30344f;
+}
+
+/* -------------------------------
+   Student: Upskill
+-------------------------------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.upskill-courses ul {
+  margin-left: 20px;
+  line-height: 1.6;
+  color: #3c415f;
+}
+
+/* -------------------------------
+   Forms
+-------------------------------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: #454a6b;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.7);
+  color: #1e2131;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  box-shadow: 0 0 0 3px rgba(77, 93, 255, 0.25);
+}
+
+/* -------------------------------
+   Admin Dashboard
+-------------------------------- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.admin-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  padding: 10px;
+  color: #4d5dff;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.admin-table td {
+  padding: 10px;
+  color: #333856;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* -------------------------------
+   Modal
+-------------------------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 540px;
+  padding: 30px;
+  border-radius: 20px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.88); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* -------------------------------
+   Toast Notification
+-------------------------------- */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2a2d43;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: #fff;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* -------------------------------
+   Responsive
+-------------------------------- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 20px;
+  }
+}
+/* ------- MODAL FIX: NEVER OVERFLOW SCREEN ------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+/* OPEN STATE */
+.modal.open {
+  display: flex;
+}
+
+/* FIX HEIGHT + SCROLL INSIDE MODAL */
+.modal-content {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;   /* key fix */
+  overflow-y: auto;   /* scroll inside */
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  /* smooth animation */
+  animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Prevent body scrolling when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+.team-intro {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #3f4260;
+}
+
+.ngm-footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #2b2f45;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  color: #4d5dff;
+}
+
+.footer-copy {
+  color: #3b3f57;
+  font-size: 0.9rem;
+}
+/* Dashboard Cards */
+.dashboard-info {
+  margin-top: 30px;
+  line-height: 1.6;
+  color: #2f3455;
+}
+
+#dashboardSection h3 {
+  margin-bottom: 10px;
+}
+
+#dashboardSection p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4d5dff;
+  text-align: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 20px;
+}
