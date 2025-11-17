@@ -1,363 +1,524 @@
 /* =========================================================
-   NEXTGEN MINDS – PRO UI (V2)
-   Ultra-clean, modern SaaS glass UI
-   Color theme: gradient (#cad0ff → #e3e3e3)
-   Fonts: Inter (fallback)
-========================================================= */
+   GLOBAL THEME
+   NEXTGEN MINDS - Glass + Gradient
+   ======================================================= */
 
-/* Reset */
-* {
+/* Custom font (Science by Fontkong) – adjust path to your font file */
+@font-face {
+  font-family: "Science";
+  src: url("assets/fonts/Science.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg-gradient-start: #e3e3e3;
+  --bg-gradient-end: #cad0ff;
+  --glass-bg: rgba(255, 255, 255, 0.16);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --primary: #4353ff;
+  --primary-soft: rgba(67, 83, 255, 0.12);
+  --secondary: #111827;
+  --accent: #f97316;
+  --text-main: #0f172a;
+  --text-soft: #4b5563;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+  --shadow-subtle: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --border-light: rgba(148, 163, 184, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  height: 100%;
 }
 
 body {
-  background: linear-gradient(145deg, #cad0ff, #e3e3e3);
-  color: #1c1f28;
-  overflow-x: hidden;
-  min-height: 100vh;
+  font-family: "Science", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, var(--bg-gradient-end), var(--bg-gradient-start));
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* -------------------------------
-   Glass Card Base
--------------------------------- */
+/* Scrollbar subtle styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.7);
+  border-radius: 999px;
+}
+
+/* =========================================================
+   LAYOUT WRAPPER
+   ======================================================= */
+
+main {
+  padding: 110px 5% 60px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   GLASS CARD
+   ======================================================= */
+
 .glass {
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-subtle);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.1),
-    inset 0 0 25px rgba(255, 255, 255, 0.25);
-  transition: 0.3s ease;
 }
 
-.glass:hover {
-  transform: translateY(-4px);
+/* Generic card padding */
+.section,
+.hero,
+.team-section,
+.contact-short,
+.job-card,
+.admin-table table {
+  padding: 1rem;
 }
 
-/* -------------------------------
-   Header / Navigation
--------------------------------- */
+/* =========================================================
+   HEADER / NAVBAR
+   ======================================================= */
+
 .ngm-header {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1180px, 100% - 32px);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  justify-content: space-between;
+  padding: 10px 18px;
+  z-index: 50;
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  cursor: pointer;
   gap: 8px;
+  cursor: pointer;
 }
 
 .logo-icon {
-  font-size: 1.6rem;
-  color: #4a4f9e;
+  width: 32px;
+  height: 32px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 0, #ffffff, #9ca3ff);
+  box-shadow: 0 12px 25px rgba(67, 83, 255, 0.35);
+  font-size: 1.1rem;
 }
 
 .logo-text {
-  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #2a2d43;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
-/* Navigation */
 .ngm-nav ul {
-  display: flex;
-  gap: 30px;
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0 12px;
 }
 
 .ngm-nav a {
-  color: #2e3355;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  position: relative;
-  padding-bottom: 4px;
-  transition: 0.2s;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-.ngm-nav a:hover,
+.ngm-nav a:hover {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
 .ngm-nav a.active {
-  color: #4d5dff;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
 }
 
-.ngm-nav a.active::after,
-.ngm-nav a:hover::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  height: 2px;
-  width: 30px;
-  border-radius: 20px;
-  background: #4d5dff;
-}
-
-/* Right Area */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .welcome-user {
-  font-weight: 600;
-  color: #2d2f41;
+  font-size: 0.85rem;
+  color: var(--text-soft);
 }
 
-/* -------------------------------
-   Buttons
--------------------------------- */
+/* =========================================================
+   BUTTONS
+   ======================================================= */
+
 .btn {
-  padding: 10px 22px;
-  border-radius: 14px;
+  border-radius: var(--radius-full);
   border: none;
-  cursor: pointer;
+  padding: 8px 18px;
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: 0.25s;
-  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  outline: none;
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #4d5dff, #6274ff);
+  background: linear-gradient(135deg, var(--primary), #7a5cff);
   color: white;
-  box-shadow: 0px 5px 14px rgba(77, 93, 255, 0.35);
-}
-
-.btn.primary:hover {
-  background: linear-gradient(135deg, #3d4aff, #5162ff);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(67, 83, 255, 0.35);
 }
 
 .btn.secondary {
-  background: rgba(80, 80, 120, 0.1);
-  color: #2a2d43;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--text-main);
+  border: 1px solid rgba(148, 163, 184, 0.6);
 }
 
-.btn.secondary:hover {
-  background: rgba(80, 80, 120, 0.2);
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
 }
 
-/* -------------------------------
-   Sections
--------------------------------- */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* =========================================================
+   SECTIONS / HEADERS
+   ======================================================= */
+
 .section {
   display: none;
-  padding: 40px 50px;
+  margin-bottom: 28px;
 }
 
 .section.active {
   display: block;
 }
 
+.section-header {
+  margin-bottom: 16px;
+}
+
 .section-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #2b2f45;
-  margin-bottom: 6px;
+  margin: 0 0 6px;
+  font-size: 1.3rem;
 }
 
 .section-header p {
-  color: #414769;
-  font-size: 1rem;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
 }
 
-/* -------------------------------
-   Hero Section
--------------------------------- */
+/* =========================================================
+   HERO / HOMEPAGE
+   ======================================================= */
+
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 45px;
-  align-items: center;
-  padding: 40px;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+  gap: 18px;
+  padding: 22px;
+  margin-bottom: 22px;
 }
 
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #262a3d;
-  line-height: 1.2;
+.hero-content h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin-bottom: 10px;
 }
 
-.hero p {
-  margin-top: 12px;
-  color: #4b5072;
-  line-height: 1.55;
-  font-size: 1.1rem;
+.hero-content p {
+  color: var(--text-soft);
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  max-width: 460px;
 }
 
 .highlight {
-  color: #4d5dff;
-  font-weight: 800;
+  color: var(--primary);
 }
 
 .hero-actions {
-  margin-top: 25px;
   display: flex;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .hero-metrics {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 10px;
 }
 
 .metric-card {
-  text-align: center;
+  padding: 10px 14px;
+}
+
+.metric-card h3 {
+  font-size: 0.9rem;
+  margin: 0 0 4px;
+  color: var(--text-soft);
 }
 
 .metric-card p {
-  margin-top: 8px;
-  font-size: 2.4rem;
+  margin: 0;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #4d5dff;
 }
 
-/* -------------------------------
-   Team Section
--------------------------------- */
+/* Short contact section on home */
+.contact-short {
+  margin-top: 16px;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+}
+
+.contact-short p {
+  margin: 4px 0;
+}
+
+/* =========================================================
+   TEAM SECTION
+   ======================================================= */
+
+.team-section {
+  margin-top: 18px;
+  padding: 16px 18px;
+}
+
 .team-section h2 {
-  text-align: center;
-  margin-bottom: 28px;
-  font-size: 2rem;
-  color: #2a2d43;
+  margin-top: 0;
+  margin-bottom: 6px;
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
 }
 
 .team-card {
   text-align: center;
-  padding: 20px;
+  padding: 10px 8px 12px;
+}
+
+.circle-frame {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(248, 250, 252, 0.9);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.22);
 }
 
 .circle-frame img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 4px solid rgba(255,255,255,0.7);
 }
 
-/* -------------------------------
-   Jobs Section
--------------------------------- */
+.team-card h3 {
+  margin: 4px 0 2px;
+  font-size: 0.9rem;
+}
+
+.team-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   GRID HELPERS & CARDS
+   ======================================================= */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  gap: 12px;
 }
 
-.cards-grid article h3 {
-  margin-bottom: 5px;
-  font-size: 1.25rem;
-  color: #30344f;
+/* Job cards */
+.job-card {
+  padding: 12px 14px;
 }
 
-/* -------------------------------
-   Student: Upskill
--------------------------------- */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+.job-card h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
 }
 
-.upskill-courses ul {
-  margin-left: 20px;
-  line-height: 1.6;
-  color: #3c415f;
+.job-card p {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: var(--text-soft);
 }
 
-/* -------------------------------
-   Forms
--------------------------------- */
+.job-card .job-desc {
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+/* =========================================================
+   FORMS / INPUTS
+   ======================================================= */
+
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
 }
 
 .form-field label {
-  display: block;
-  margin-bottom: 6px;
+  color: var(--text-soft);
+}
+
+input,
+select,
+textarea {
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  padding: 7px 10px;
+  font-family: inherit;
   font-size: 0.85rem;
-  color: #454a6b;
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  background: rgba(255,255,255,0.7);
-  color: #1e2131;
-  font-size: 0.95rem;
+  background: rgba(248, 250, 252, 0.9);
   outline: none;
-  transition: 0.2s;
+  transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.form-field input:focus,
-.form-field textarea:focus {
-  box-shadow: 0 0 0 3px rgba(77, 93, 255, 0.25);
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(67, 83, 255, 0.2);
 }
 
-/* -------------------------------
-   Admin Dashboard
--------------------------------- */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 26px;
+/* Smaller button inside forms */
+form .btn {
+  margin-top: 4px;
+}
+
+/* =========================================================
+   UPSKILL SECTION
+   ======================================================= */
+
+.upskill-courses ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   ADMIN TABLES
+   ======================================================= */
+
+.admin-tables {
+  margin-top: 10px;
+}
+
+.admin-table {
+  padding: 10px;
+  overflow: hidden;
 }
 
 .admin-table table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  text-align: left;
 }
 
 .admin-table th {
-  padding: 10px;
-  color: #4d5dff;
-  border-bottom: 2px solid rgba(0,0,0,0.1);
+  font-weight: 600;
+  color: var(--text-soft);
 }
 
-.admin-table td {
-  padding: 10px;
-  color: #333856;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
+/* =========================================================
+   MODAL (AUTH)
+//  Centered + scrollable (won't go under taskbar)
+   ======================================================= */
 
-/* -------------------------------
-   Modal
--------------------------------- */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(15, 23, 42, 0.4);
   display: none;
-  justify-content: center;
   align-items: center;
-  padding: 25px;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
 }
 
 .modal.open {
@@ -365,151 +526,164 @@ body {
 }
 
 .modal-content {
-  width: 100%;
-  max-width: 540px;
-  padding: 30px;
-  border-radius: 20px;
-  animation: pop 0.3s ease;
+  position: relative;
+  width: min(550px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 18px 20px 20px;
+  box-shadow: var(--shadow-soft);
 }
 
-@keyframes pop {
-  from { transform: scale(0.88); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-soft);
 }
 
-/* -------------------------------
-   Toast Notification
--------------------------------- */
+/* role tabs */
+.role-tabs {
+  display: inline-flex;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  padding: 3px;
+  margin: 8px 0 12px;
+}
+
+.role-tab {
+  border-radius: 999px;
+  border: none;
+  padding: 6px 14px;
+  background: transparent;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--text-soft);
+}
+
+.role-tab.active {
+  background: #ffffff;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* auth panes */
+.auth-pane {
+  display: none;
+  margin-top: 6px;
+}
+
+.auth-pane.active {
+  display: block;
+}
+
+/* =========================================================
+   TOAST
+   ======================================================= */
+
 .toast {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #2a2d43;
-  padding: 14px 20px;
-  border-radius: 12px;
-  color: #fff;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #f9fafb;
+  font-size: 0.8rem;
   opacity: 0;
-  transition: 0.4s;
+  transform: translateY(12px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 120;
 }
 
 .toast.show {
   opacity: 1;
+  transform: translateY(0);
 }
 
-/* -------------------------------
-   Responsive
--------------------------------- */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-@media (max-width: 700px) {
-  .section {
-    padding: 20px;
-  }
-}
-/* ------- MODAL FIX: NEVER OVERFLOW SCREEN ------- */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  z-index: 9999;
-}
-
-/* OPEN STATE */
-.modal.open {
-  display: flex;
-}
-
-/* FIX HEIGHT + SCROLL INSIDE MODAL */
-.modal-content {
-  width: 100%;
-  max-width: 520px;
-  max-height: 90vh;   /* key fix */
-  overflow-y: auto;   /* scroll inside */
-  padding: 28px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-  /* smooth animation */
-  animation: popup 0.25s ease;
-}
-
-@keyframes popup {
-  from { transform: scale(0.85); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
-/* Prevent body scrolling when modal is open */
-body.modal-open {
-  overflow: hidden;
-}
-.team-intro {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  color: #3f4260;
-}
+/* =========================================================
+   FOOTER
+   ======================================================= */
 
 .ngm-footer {
-  margin-top: 40px;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-links {
+  max-width: 1180px;
+  margin: 0 auto 18px;
+  padding: 10px 16px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.footer-links a {
-  color: #2b2f45;
-  font-weight: 600;
+.ngm-footer-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ngm-footer a {
   text-decoration: none;
-  transition: 0.2s;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.footer-links a:hover {
-  color: #4d5dff;
+.ngm-footer a:hover {
+  background: rgba(148, 163, 184, 0.18);
+  color: var(--text-main);
 }
 
-.footer-copy {
-  color: #3b3f57;
-  font-size: 0.9rem;
-}
-/* Dashboard Cards */
-.dashboard-info {
-  margin-top: 30px;
-  line-height: 1.6;
-  color: #2f3455;
+/* =========================================================
+   RESPONSIVE
+   ======================================================= */
+
+@media (max-width: 900px) {
+  .ngm-header {
+    padding-inline: 12px;
+  }
+
+  .ngm-nav ul {
+    gap: 10px;
+    padding: 0 4px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  main {
+    padding-inline: 14px;
+  }
 }
 
-#dashboardSection h3 {
-  margin-bottom: 10px;
-}
+@media (max-width: 600px) {
+  .ngm-nav ul {
+    overflow-x: auto;
+    max-width: 50vw;
+  }
 
-#dashboardSection p {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #4d5dff;
-  text-align: center;
-}
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  margin-bottom: 20px;
+  .modal-content {
+    padding: 14px 14px 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
