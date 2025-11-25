@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXTGEN MINDS — Performance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar glass">
+    <h1 class="brand">NEXTGEN MINDS</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="upskill.html">Upskill</a>
+      <a href="performance.html">Performance</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div id="authButtons">
+      <button class="btn ghost" data-open-modal="loginModal">Login</button>
+      <button class="btn primary" data-open-modal="registerModal">Register</button>
+    </div>
+
+    <div id="userMenu" class="hidden">
+      <span id="userGreeting"></span>
+      <button id="logoutBtn" class="btn small">Logout</button>
+    </div>
+  </header>
+
+  <!-- PERFORMANCE DASHBOARD -->
+  <section class="glass container performance-layout">
+    <div class="perf-left">
+      <!-- Profile header -->
+      <div class="profile-card">
+        <div class="avatar-circle" id="perfAvatar">S</div>
+        <div>
+          <h2 id="performanceWelcome">Loading your performance...</h2>
+          <p class="profile-sub" id="performanceSubtitle">
+            We’ll analyze your skills against all active jobs and show your gaps.
+          </p>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div id="performanceSummary" class="performance-box"></div>
+
+      <!-- Top jobs + skills -->
+      <div class="performance-columns">
+        <div>
+          <h3>Top Matching Jobs</h3>
+          <ul id="topJobsList" class="list-box"></ul>
+        </div>
+        <div>
+          <h3>Your Current Skills</h3>
+          <ul id="currentSkillsList" class="list-box"></ul>
+        </div>
+      </div>
+
+      <!-- Skills gap + message -->
+      <div>
+        <h3>Skills You Need to Achieve</h3>
+        <ul id="skillsGapList" class="list-box"></ul>
+      </div>
+
+      <div id="performanceMessage" class="status-banner"></div>
+    </div>
+
+    <!-- Charts side -->
+    <div class="perf-right">
+      <div class="chart-card glass">
+        <h3>Best Matches</h3>
+        <canvas id="matchChart"></canvas>
+      </div>
+      <div class="chart-card glass">
+        <h3>Skills Coverage</h3>
+        <canvas id="skillsChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content glass">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" name="first_name" id="loginFirstName" placeholder="First Name" required>
+        <input type="text" name="last_name" id="loginLastName" placeholder="Last Name" required>
+        <input type="email" name="email" id="loginEmail" placeholder="Email" required>
+        <p id="loginStatus" class="status-text"></p>
+        <button class="btn primary" type="submit">Login</button>
+      </form>
+      <button class="btn" data-close-modal>Close</button>
+    </div>
+  </div>
+
+  <!-- REGISTER MODAL -->
+  <div id="registerModal" class="modal hidden">
+    <div class="modal-content glass">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" name="first_name" id="regFirstName" placeholder="First Name" required>
+        <input type="text" name="last_name" id="regLastName" placeholder="Last Name" required>
+        <input type="text" name="mobile" placeholder="Mobile" required>
+        <input type="email" name="email" id="regEmail" placeholder="Email" required>
+        <input type="text" name="city" placeholder="City" required>
+        <input type="text" name="education_level" placeholder="Education Level" required>
+        <input type="number" name="experience_years" placeholder="Experience Years" required>
+        <input type="text" name="skills" placeholder="Skills (comma separated)" required>
+        <input type="text" name="preferred_role" placeholder="Preferred Role" required>
+        <p id="registerStatus" class="status-text"></p>
+        <button class="btn primary" type="submit">Register</button>
+      </form>
+      <button class="btn" data-close-modal>Close</button>
+    </div>
+  </div>
+
+  <!-- LIBS + JS -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+
+</body>
+<div id="userMenu" class="user-menu hidden">
+  <span id="userGreeting"></span>
+  <div class="dropdown">
+    <p onclick="location.href='performance.html'">My Performance</p>
+    <p onclick="location.href='upskill.html'">Upskill</p>
+    <p id="logoutBtn">Logout</p>
+  </div>
+</div>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXTGEN MINDS - Authentication</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="navbar glass-container">
+        <div class="logo">NEXTGEN MINDS</div>
+        <nav class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="jobs.html">JOBS</a>
+            <a href="upskill.html">UPSKILL</a>
+            <a href="index.html#contact-section">CONTACT</a>
+        </nav>
+        <div class="nav-auth">
+            <button id="auth-btn" onclick="window.location.href='auth.html'">LOGIN / REGISTER</button>
+        </div>
+    </header>
+
+    <main class="container auth-container">
+        
+        <div class="auth-box glass-container">
+            <h2>Student Login</h2>
+            <form id="login-form">
+                <p>Login requires exact match of Email, First Name, and Last Name.</p>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <button type="submit">Login</button>
+                <p id="login-message" style="text-align: center; color: var(--secondary-color);"></p>
+            </form>
+        </div>
+
+        <div class="auth-box glass-container">
+            <h2>Student Registration</h2>
+            <form id="register-form">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="mobile" placeholder="Mobile" required>
+                <input type="text" name="city" placeholder="City" required>
+                
+                <select name="education_level" required>
+                    <option value="" disabled selected>Select Education Level</option>
+                    <option value="Bachelors">Bachelors</option>
+                    <option value="Masters">Masters</option>
+                    <option value="PhD">PhD</option>
+                </select>
+                
+                <input type="number" name="experience_years" placeholder="Experience (Years)" min="0" required>
+                <input type="text" name="skills" placeholder="Skills (e.g., Python, SQL, JS)" required>
+                <input type="text" name="preferred_role" placeholder="Preferred Role (e.g., Data Analyst)" required>
+                
+                <button type="submit">Register and Login</button>
+                <p id="register-message" style="text-align: center; color: var(--primary-color);"></p>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 NEXTGEN MINDS. All rights reserved. | Built for the Future.</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+<div id="userMenu" class="user-menu hidden">
+  <span id="userGreeting"></span>
+  <div class="dropdown">
+    <p onclick="location.href='performance.html'">My Performance</p>
+    <p onclick="location.href='upskill.html'">Upskill</p>
+    <p id="logoutBtn">Logout</p>
+  </div>
+</div>
+
+</html>

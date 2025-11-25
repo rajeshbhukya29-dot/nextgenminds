@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEXTGEN MINDS — Jobs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- SheetJS for reading Excel in browser -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="ngm-body">
+  <header class="ngm-header glass">
+    <div class="ngm-logo" onclick="window.location.href='index.html'">
+      <span class="ngm-logo-mark">NG</span>
+      <span class="ngm-logo-text">NEXTGEN MINDS</span>
+    </div>
+
+    <nav class="ngm-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="jobs.html" class="nav-link active">Jobs</a>
+      <a href="upskill.html" class="nav-link">Upskill</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+      <a href="performance.html" class="nav-link">My Performance</a>
+    </nav>
+
+    <div class="ngm-auth-area">
+      <div id="authButtons" class="auth-buttons">
+        <button class="btn ghost" data-open-modal="loginModal">Login</button>
+        <button class="btn primary" data-open-modal="registerModal">Register</button>
+      </div>
+      <div id="userMenu" class="user-menu hidden">
+        <span id="userGreeting"></span>
+        <div class="user-menu-dropdown">
+          <button onclick="window.location.href='performance.html'">My Performance</button>
+          <button onclick="window.location.href='upskill.html'">Upskill</button>
+          <button id="logoutBtn" class="danger">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="ngm-main">
+    <section class="page-header glass">
+      <h1>Find Your Next Role</h1>
+      <p>Showing job openings directly from Excel (synthetic_jobs.xlsx). Log in to apply.</p>
+      <div class="job-filters">
+        <input type="text" id="jobSearch" placeholder="Search by title, company, or keyword..." />
+        <select id="jobLocationFilter">
+          <option value="">Location (All)</option>
+        </select>
+        <select id="jobTypeFilter">
+          <option value="">Role Type (All)</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="jobs-section glass">
+      <div id="jobsList" class="jobs-list">
+        <!-- Job cards will be injected by app.js -->
+      </div>
+      <p id="jobsStatus" class="status-text"></p>
+    </section>
+  </main>
+
+  <footer class="ngm-footer glass">
+    <p>© 2025 NEXTGEN MINDS. All rights reserved. | Built for the Future.</p>
+  </footer>
+
+  <!-- LOGIN / REGISTER MODALS (same structure as index) -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content glass">
+      <button class="modal-close" data-close-modal>&times;</button>
+      <h2>Student Login</h2>
+      <p class="modal-subtitle">
+        Login with the same name and email you used during registration.
+      </p>
+      <form id="loginForm">
+        <div class="form-row">
+          <label for="loginFirstName">First Name</label>
+          <input type="text" id="loginFirstName" name="first_name" required />
+        </div>
+        <div class="form-row">
+          <label for="loginLastName">Last Name</label>
+          <input type="text" id="loginLastName" name="last_name" required />
+        </div>
+        <div class="form-row">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" required />
+        </div>
+        <button type="submit" class="btn primary wide">Login</button>
+        <p id="loginStatus" class="status-text"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="registerModal" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content glass">
+      <button class="modal-close" data-close-modal>&times;</button>
+      <h2>Student Registration</h2>
+      <p class="modal-subtitle">
+        Create your NEXTGEN MINDS profile to unlock jobs, upskilling and performance analytics.
+      </p>
+      <form id="registerForm">
+        <div class="form-row two-col">
+          <div>
+            <label for="regFirstName">First Name</label>
+            <input type="text" id="regFirstName" name="first_name" required />
+          </div>
+          <div>
+            <label for="regLastName">Last Name</label>
+            <input type="text" id="regLastName" name="last_name" required />
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div>
+            <label for="regMobile">Mobile</label>
+            <input type="tel" id="regMobile" name="mobile" required />
+          </div>
+          <div>
+            <label for="regCity">City</label>
+            <input type="text" id="regCity" name="city" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" name="email" required />
+        </div>
+
+        <div class="form-row two-col">
+          <div>
+            <label for="regEducation">Education Level</label>
+            <input type="text" id="regEducation" name="education_level" required />
+          </div>
+          <div>
+            <label for="regExperience">Experience (years)</label>
+            <input type="number" id="regExperience" name="experience_years" min="0" value="0" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="regSkills">Skills (comma separated)</label>
+          <input type="text" id="regSkills" name="skills" required />
+        </div>
+
+        <div class="form-row">
+          <label for="regPreferredRole">Preferred Role</label>
+          <input type="text" id="regPreferredRole" name="preferred_role" required />
+        </div>
+
+        <button type="submit" class="btn primary wide">Register</button>
+        <p id="registerStatus" class="status-text"></p>
+      </form>
+    </div>
+  </div>
+  <div id="userMenu" class="user-menu hidden">
+  <span id="userGreeting"></span>
+  <div class="dropdown">
+    <p onclick="location.href='performance.html'">My Performance</p>
+    <p onclick="location.href='upskill.html'">Upskill</p>
+    <p id="logoutBtn">Logout</p>
+  </div>
+</div>
+
+</body>
+</html>
